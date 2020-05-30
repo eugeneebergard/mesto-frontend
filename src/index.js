@@ -1,3 +1,5 @@
+import "./style.css";
+
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupAdd = document.querySelector('.popup_type_add-card');
 const popupImg = document.querySelector('.popup_type_full-img');
