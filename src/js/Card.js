@@ -1,0 +1,70 @@
+class Card {
+  like(event) {
+    event.target.classList.toggle('place-card__like-icon_liked');
+  }
+
+  remove(event) {
+    this.removeEventListeners();
+    event.target.closest('.place-card').remove();
+  }
+
+  zoom(event) {
+    const fullImage = document.querySelector('.popup__bg-img');
+    const imageSrc = event.target.style.backgroundImage.slice();
+  
+    fullImage.setAttribute('style', 'background-image');
+    fullImage.style.backgroundImage = imageSrc;
+  
+    popupTypeImg.open();
+  } 
+
+  create(obj) {
+    this.cardContainer = document.createElement("div");
+    this.cardContainer.classList.add("place-card");
+    this.cardContainer.insertAdjacentHTML(
+      "beforeend",
+
+      ` <div class="place-card__image" style="background-image: url(${obj.link})">
+          <button class="place-card__delete-icon"></button>
+        </div>
+        <div class="place-card__description">
+          <h3 class="place-card__name">${obj.name}</h3>
+          <button class="place-card__like-icon"></button>
+        </div>`
+    );
+      
+    this.setEventListeners();
+
+    return this.cardContainer;
+  }
+
+  setEventListeners() {
+    this
+      .cardContainer
+      .querySelector('.place-card__like-icon')
+      .addEventListener('click', () => this.like(event));
+    this
+      .cardContainer
+      .querySelector('.place-card__delete-icon')
+      .addEventListener('click', () => this.remove(event));
+    this
+      .cardContainer
+      .querySelector('.place-card__image')
+      .addEventListener('click', this.zoom);
+  }
+
+  removeEventListeners() {
+    this
+      .cardContainer
+      .querySelector('.place-card__like-icon')
+      .removeEventListener('click', () => this.like(event));
+    this
+      .cardContainer
+      .querySelector('.place-card__delete-icon')
+      .removeEventListener('click', () => this.remove(event));
+    this
+      .cardContainer
+      .querySelector('.place-card__image')
+      .removeEventListener('click', this.zoom);
+  }
+}

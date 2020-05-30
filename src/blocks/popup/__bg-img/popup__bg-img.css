@@ -1,0 +1,10 @@
+.popup__bg-img {
+    width: 451px;
+    height: 561px;
+    max-width: 80vw;
+    max-height: 80vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
