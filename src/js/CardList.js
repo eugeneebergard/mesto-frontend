@@ -1,4 +1,6 @@
-class CardList {
+"use strict";
+
+export default class CardList {
     constructor(container, api, func) {
       this.container = container;
       this.func = func;

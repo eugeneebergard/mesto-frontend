@@ -10,7 +10,7 @@
 <body>
   <div class="root">
     <header class="header root__section">
-      <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
+      <img src="<%=require('./images/logo.svg').default%>" alt="mesto logo" class="logo">
     </header>
     <div class="profile root__section">
       <div class="user-info">
@@ -27,7 +27,7 @@
     </div>
     <div class="popup popup_type_add-card">
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close_type_add-card">
+        <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close popup__close_type_add-card">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form popup__form_type_add-card" name="add" novalidate>
 
@@ -43,7 +43,7 @@
     </div>
     <div class="popup popup_type_edit-profile">
       <div class="popup__content">
-        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close_type_edit-profile">
+        <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close popup__close_type_edit-profile">
         <h3 class="popup__title">Редактировать профиль</h3>
         <form class="popup__form popup__form_type_edit-profile" name="edit" novalidate>
             <input id="fullname" type="text" name="fullname" class="popup__input popup__input_type_fullname" placeholder="Имя" minlength="2" maxlength="30">
@@ -56,7 +56,7 @@
     </div>
     <div class="popup popup_type_full-img">
       <div class="popup__bg-img">
-        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close popup__close_type_full-img">
+        <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close popup__close_type_full-img">
       </div>
     </div>
   </div>

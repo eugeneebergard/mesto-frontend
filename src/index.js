@@ -1,4 +1,12 @@
+"use strict";
 import "./style.css";
+
+import Api from "./js/Api";
+import Card from "./js/Card";
+import CardList from "./js/CardList";
+import FormValidator from "./js/FormValidator";
+import Popup from "./js/Popup";
+import UserInfo from "./js/UserInfo";
 
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupAdd = document.querySelector('.popup_type_add-card');

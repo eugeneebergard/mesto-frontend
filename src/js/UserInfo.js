@@ -1,4 +1,6 @@
-class UserInfo {
+"use strict";
+
+export default class UserInfo {
   constructor(name, job, infoName, infoJob, api) {
     this.infoName = infoName;
     this.infoJob = infoJob;
