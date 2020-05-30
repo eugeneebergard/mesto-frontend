@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/eugeneebergard/mesto-webpack/issues"
   },
-  "homepage": "https://eugeneebergard.github.io/mesto-wepback/",
+  "homepage": "https://eugeneebergard.github.io/mesto-webpack/",
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.1",
