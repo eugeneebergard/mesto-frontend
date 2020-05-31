@@ -38,7 +38,7 @@ const validMessage = {
 }
 
 const options = {
-  baseUrl: 'https://praktikum.tk/cohort10',
+  baseUrl: NODE_ENV === 'development' ? 'http://praktikum.tk/cohort10' : 'https://praktikum.tk/cohort10',
   headers: {
     authorization: '786dbc8b-04cf-4abd-8a09-fbdf77c3284b',
     'Content-Type': 'application/json'

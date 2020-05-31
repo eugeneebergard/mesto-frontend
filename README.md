@@ -6,11 +6,20 @@
 
 [GitHub Pages](https://eugeneebergard.github.io/mesto-webpack/)
 
+<h3>Сборка:</h3>
+
+<li>Клонировать репозиторий командой <b>git clone</b></li> 
+<li>Установить пакеты <b>npm</b></li>
+<li>Запустить необходимую сборку:</li>
+<li>Запуск сборки Production - <b>npm run build</b></li>
+<li>Запуск сборки Development с локальным сервером и hot reload - <b>npm run dev</b></li>
+
+
 <h3>Стек:</h3> HTML5, CSS3(Flexbox + Grid), JavaScript ES6, БЭМ
 
 <h3>Функционал:</h3>
 
-<li>Добавление и удаление карточек с фотографиями</n> 
+<li>Добавление и удаление карточек с фотографиями</li> 
 <li>Лайки карточек</li>
 <li>Открытие фотографий на весь экран</li>
 <li>Редактирование профиля</li>
