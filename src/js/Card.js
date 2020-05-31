@@ -11,13 +11,14 @@ export default class Card {
   }
 
   zoom(event) {
+    const popupImg = document.querySelector('.popup_type_full-img');
     const fullImage = document.querySelector('.popup__bg-img');
     const imageSrc = event.target.style.backgroundImage.slice();
   
     fullImage.setAttribute('style', 'background-image');
     fullImage.style.backgroundImage = imageSrc;
   
-    popupTypeImg.open();
+    popupImg.classList.add('popup_is-opened');
   } 
 
   create(obj) {

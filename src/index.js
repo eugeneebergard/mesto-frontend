@@ -45,8 +45,6 @@ const options = {
   }
 }
 
-
-
 const api = new Api(options);
 
 const newUserCard = () => new Card();
