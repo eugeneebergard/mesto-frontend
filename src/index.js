@@ -1,19 +1,19 @@
-"use strict";
-import "./style.css";
 
-import Api from "./js/Api";
-import Card from "./js/Card";
-import CardList from "./js/CardList";
-import FormValidator from "./js/FormValidator";
-import Popup from "./js/Popup";
-import UserInfo from "./js/UserInfo";
+import './style.css';
+
+import Api from './js/Api';
+import Card from './js/Card';
+import CardList from './js/CardList';
+import FormValidator from './js/FormValidator';
+import Popup from './js/Popup';
+import UserInfo from './js/UserInfo';
 
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupAdd = document.querySelector('.popup_type_add-card');
 const popupImg = document.querySelector('.popup_type_full-img');
 
 const buttonOpenAdd = document.querySelector('.user-info__button_add');
-const buttonOpenEdit = document.querySelector('.user-info__button_edit')
+const buttonOpenEdit = document.querySelector('.user-info__button_edit');
 
 const buttonCloseAdd = document.querySelector('.popup__close_type_add-card');
 const buttonCloseEdit = document.querySelector('.popup__close_type_edit-profile');
@@ -34,16 +34,17 @@ const infoJob = document.querySelector('.user-info__job');
 
 const validMessage = {
   validationLenght: 'Должно быть от 2 до 30 символов',
-  validationVoid: 'Это обязательное поле'
-}
+  validationVoid: 'Это обязательное поле',
+};
 
 const options = {
+  // eslint-disable-next-line no-undef
   baseUrl: NODE_ENV === 'development' ? 'http://praktikum.tk/cohort10' : 'https://praktikum.tk/cohort10',
   headers: {
     authorization: '786dbc8b-04cf-4abd-8a09-fbdf77c3284b',
-    'Content-Type': 'application/json'
-  }
-}
+    'Content-Type': 'application/json',
+  },
+};
 
 const api = new Api(options);
 
@@ -59,7 +60,6 @@ const userInfo = new UserInfo(fullname, job, infoName, infoJob, api);
 
 const formValidatorAdd = new FormValidator(formAdd, submitAdd, validMessage);
 const formValidatorEdit = new FormValidator(formEdit, submitEdit, validMessage);
-
 
 
 // Обработчик открытия формы add //
@@ -103,7 +103,7 @@ buttonCloseImg.addEventListener('click', () => {
 
 // Обработчик добавления новой карточки //
 
-submitAdd.addEventListener('click', event => {
+submitAdd.addEventListener('click', (event) => {
   event.preventDefault();
 
   const name = document.querySelector('.popup__input_type_name');
@@ -117,9 +117,9 @@ submitAdd.addEventListener('click', event => {
 
 // Обработчик редактирования профиля //
 
-submitEdit.addEventListener('click', event => {
+submitEdit.addEventListener('click', (event) => {
   event.preventDefault();
-  
+
   userInfo.updateUserInfo();
   popupTypeEdit.close();
 });

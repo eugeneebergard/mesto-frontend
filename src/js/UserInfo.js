@@ -1,4 +1,3 @@
-"use strict";
 
 export default class UserInfo {
   constructor(name, job, infoName, infoJob, api) {
@@ -10,9 +9,9 @@ export default class UserInfo {
     this.defaultData = this.defaultData.bind(this);
   }
 
-  defaultData(){
+  defaultData() {
     this.api.getUserInfo()
-      .then(user => {
+      .then((user) => {
         this.infoName.textContent = user.name;
         this.infoJob.textContent = user.about;
       });

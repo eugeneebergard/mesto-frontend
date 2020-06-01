@@ -1,4 +1,3 @@
-"use strict";
 
 export default class FormValidator {
   constructor(form, submit, validMessage) {
@@ -32,7 +31,7 @@ export default class FormValidator {
 
   setSubmitButtonStateActive() {
     this.submit.classList.add('popup__button_is-active');
-    this.submit.removeAttribute('disabled')
+    this.submit.removeAttribute('disabled');
   }
 
   setSubmitButtonStateDisactive() {
@@ -49,8 +48,9 @@ export default class FormValidator {
     const errors = this.form.querySelectorAll('.error');
 
     errors.forEach((elem) => {
-      elem.classList.remove('error_is-active');
-      elem.textContent = '';
+      const err = elem;
+      err.classList.remove('error_is-active');
+      err.textContent = '';
     });
   }
 
