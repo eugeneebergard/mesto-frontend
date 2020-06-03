@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 export default class UserInfo {
-  constructor(name, job, infoName, infoJob, api) {
+  constructor(name, job, infoName, infoJob, api, photo) {
     this.infoName = infoName;
     this.infoJob = infoJob;
     this.name = name;
     this.job = job;
     this.api = api;
+    this.photo = photo;
     this.defaultData = this.defaultData.bind(this);
   }
 
@@ -14,6 +15,7 @@ export default class UserInfo {
       .then((user) => {
         this.infoName.textContent = user.name;
         this.infoJob.textContent = user.about;
+        this.photo.setAttribute('style', `background-image:url('${user.avatar}')`);
       })
       .catch((err) => console.log(err));
   }
@@ -28,6 +30,16 @@ export default class UserInfo {
       .then(() => {
         this.infoName.textContent = this.name.value;
         this.infoJob.textContent = this.job.value;
+
+        popup.close();
+      })
+      .catch((err) => console.log(err));
+  }
+
+  updateUserAvatar(popup, link) {
+    this.api.sendAvatarUpdate(link)
+      .then((res) => {
+        this.photo.setAttribute('style', `background-image:url('${res.avatar}')`);
 
         popup.close();
       })

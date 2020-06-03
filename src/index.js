@@ -11,19 +11,24 @@ import UserInfo from './js/UserInfo';
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupAdd = document.querySelector('.popup_type_add-card');
 const popupImg = document.querySelector('.popup_type_full-img');
+const popupAva = document.querySelector('.popup_type_update-avatar');
 
 const buttonOpenAdd = document.querySelector('.user-info__button_add');
 const buttonOpenEdit = document.querySelector('.user-info__button_edit');
+const buttonOpenAva = document.querySelector('.user-info__photo');
 
 const buttonCloseAdd = document.querySelector('.popup__close_type_add-card');
 const buttonCloseEdit = document.querySelector('.popup__close_type_edit-profile');
 const buttonCloseImg = document.querySelector('.popup__close_type_full-img');
+const buttonCloseAva = document.querySelector('.popup__close_type_update-avatar');
 
 const submitAdd = document.querySelector('.popup__button_save_card');
 const submitEdit = document.querySelector('.popup__button_save_change');
+const submitAva = document.querySelector('.popup__button_save_ava');
 
 const formAdd = document.querySelector('.popup__form_type_add-card');
 const formEdit = document.querySelector('.popup__form_type_edit-profile');
+const formAva = document.querySelector('.popup__form_type_update-avatar');
 
 const placesList = document.querySelector('.places-list');
 
@@ -51,6 +56,7 @@ const options = {
 const popupTypeAdd = new Popup(popupAdd);
 const popupTypeEdit = new Popup(popupEdit);
 const popupTypeImg = new Popup(popupImg);
+const popupTypeAva = new Popup(popupAva);
 
 const api = new Api(options);
 
@@ -58,10 +64,11 @@ const newUserCard = () => new Card(api, popupTypeImg);
 
 const cardList = new CardList(placesList, api, newUserCard, myId);
 
-const userInfo = new UserInfo(fullname, job, infoName, infoJob, api);
+const userInfo = new UserInfo(fullname, job, infoName, infoJob, api, buttonOpenAva);
 
 const formValidatorAdd = new FormValidator(formAdd, submitAdd, validMessage);
 const formValidatorEdit = new FormValidator(formEdit, submitEdit, validMessage);
+const formValidatorAva = new FormValidator(formAva, submitAva, validMessage);
 
 
 // Обработчик открытия формы add //
@@ -81,6 +88,14 @@ buttonOpenEdit.addEventListener('click', () => {
   userInfo.setUserInfo();
 });
 
+// Обработчик открытия формы avatar //
+
+buttonOpenAva.addEventListener('click', () => {
+  formValidatorAva.setEventListeners();
+  formValidatorAva.setSubmitButtonStateDisactive();
+  popupTypeAva.open();
+});
+
 // Обработчик закрытия формы add //
 
 buttonCloseAdd.addEventListener('click', () => {
@@ -95,6 +110,14 @@ buttonCloseEdit.addEventListener('click', () => {
   popupTypeEdit.close();
   formValidatorEdit.resetAllErrors();
   formEdit.reset();
+});
+
+// Обработчик закрытия формы avatar //
+
+buttonCloseAva.addEventListener('click', () => {
+  popupTypeAva.close();
+  formValidatorAva.resetAllErrors();
+  formAva.reset();
 });
 
 // Обработчик закрытия формы img //
@@ -129,6 +152,16 @@ submitEdit.addEventListener('click', (event) => {
   event.preventDefault();
 
   userInfo.updateUserInfo(popupTypeEdit);
+});
+
+// Обработчик загрузки аватара //
+
+submitAva.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const link = document.querySelector('.popup__input_type_link-ava');
+
+  userInfo.updateUserAvatar(popupTypeAva, link.value);
 });
 
 // Подгрузка карточек из массива //

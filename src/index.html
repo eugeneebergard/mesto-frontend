@@ -30,13 +30,10 @@
         <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close popup__close_type_add-card">
         <h3 class="popup__title">Новое место</h3>
         <form class="popup__form popup__form_type_add-card" name="add" novalidate>
-
             <input id="name" type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название" minlength="2" maxlength="30">
             <span id="error-name" class = "error"></span>
-
             <input id="link" type="text" name="link" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку">
             <span id="error-link" class = "error"></span>
-
             <button id="submitAdd" type="submit" class="button popup__button popup__button_save_card">+</button>
         </form>
       </div>
@@ -57,6 +54,17 @@
     <div class="popup popup_type_full-img">
       <div class="popup__bg-img">
         <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close popup__close_type_full-img">
+      </div>
+    </div>
+    <div class="popup popup_type_update-avatar">
+      <div class="popup__content">
+        <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close popup__close_type_update-avatar">
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form class="popup__form popup__form_type_update-avatar" name="update" novalidate>
+            <input id="ava" type="text" name="ava" class="popup__input popup__input_type_link-ava" placeholder="Ссылка на аватар">
+            <span id="error-ava" class = "error"></span>
+            <button id="submitUpdate" type="submit" class="button popup__button popup__button_save_ava" style = "font-size: 18px;">Сохранить</button>
+        </form>
       </div>
     </div>
   </div>
