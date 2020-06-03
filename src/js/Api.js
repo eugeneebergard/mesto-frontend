@@ -1,4 +1,3 @@
-
 export default class Api {
   constructor(options) {
     this.options = options;
@@ -8,18 +7,10 @@ export default class Api {
     return fetch(`${this.options.baseUrl}/users/me`, {
       headers: this.options.headers,
     })
-
       .then((res) => {
         if (res.ok) return res.json();
 
         return Promise.reject(new TypeError(`Ошибка: ${res.status}`));
-      })
-
-      .then((user) => user)
-
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
       });
   }
 
@@ -27,18 +18,10 @@ export default class Api {
     return fetch(`${this.options.baseUrl}/cards`, {
       headers: this.options.headers,
     })
-
       .then((res) => {
         if (res.ok) return res.json();
 
         return Promise.reject(new TypeError(`Ошибка: ${res.status}`));
-      })
-
-      .then((cards) => cards)
-
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
       });
   }
 
@@ -52,21 +35,28 @@ export default class Api {
         about,
       }),
     })
-
       .then((res) => {
         if (res.ok) return res.json();
 
         return Promise.reject(new TypeError(`Ошибка: ${res.status}`));
-      })
+      });
+  }
 
-      .then((update) => {
-        // eslint-disable-next-line no-console
-        console.log(update);
-      })
+  addNewCard(card) {
+    const { name } = card;
+    const { link } = card;
+    return fetch(`${this.options.baseUrl}/cards`, {
+      method: 'POST',
+      headers: this.options.headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
+    })
+      .then((res) => {
+        if (res.ok) return res.json();
 
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(err);
+        return Promise.reject(new TypeError(`Ошибка: ${res.status}`));
       });
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 export default class CardList {
   constructor(container, api, func) {
@@ -13,10 +14,12 @@ export default class CardList {
   render() {
     this.api.getInitialCards()
       .then((cards) => {
+        cards.reverse();
         // eslint-disable-next-line no-restricted-syntax
         for (const card of cards) {
           this.addCard(card);
         }
-      });
+      })
+      .catch((err) => console.log(err));
   }
 }

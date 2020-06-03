@@ -1,4 +1,4 @@
-
+/* eslint-disable no-console */
 export default class UserInfo {
   constructor(name, job, infoName, infoJob, api) {
     this.infoName = infoName;
@@ -14,7 +14,8 @@ export default class UserInfo {
       .then((user) => {
         this.infoName.textContent = user.name;
         this.infoJob.textContent = user.about;
-      });
+      })
+      .catch((err) => console.log(err));
   }
 
   setUserInfo() {
@@ -23,9 +24,11 @@ export default class UserInfo {
   }
 
   updateUserInfo() {
-    this.infoName.textContent = this.name.value;
-    this.infoJob.textContent = this.job.value;
-
-    this.api.sendUserUpdate(this.name.value, this.job.value);
+    this.api.sendUserUpdate(this.name.value, this.job.value)
+      .then(() => {
+        this.infoName.textContent = this.name.value;
+        this.infoJob.textContent = this.job.value;
+      })
+      .catch((err) => console.log(err));
   }
 }

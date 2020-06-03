@@ -110,7 +110,13 @@ submitAdd.addEventListener('click', (event) => {
   const link = document.querySelector('.popup__input_type_link-url');
   const newCard = { name: name.value, link: link.value };
 
-  cardList.addCard(newCard);
+  api.addNewCard(newCard)
+    .then((res) => {
+      cardList.addCard(res);
+    })
+    // eslint-disable-next-line no-console
+    .catch((err) => console.log(err));
+
   formAdd.reset();
   popupTypeAdd.close();
 });
