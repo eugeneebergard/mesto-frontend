@@ -29,7 +29,8 @@ export default class CardList {
     if (likeWasClick) buttonLike.classList.add('place-card__like-icon_liked');
   }
 
-  render() {
+  render(loading) {
+    const load = loading;
     this.api.getInitialCards()
       .then((cards) => {
         cards.reverse();
@@ -37,6 +38,7 @@ export default class CardList {
         for (const card of cards) {
           this.addCard(card, false);
         }
+        load.classList.add('root__loading_done');
       })
       .catch((err) => console.log(err));
   }

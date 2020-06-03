@@ -38,6 +38,8 @@ const job = document.querySelector('.popup__input_type_job');
 const infoName = document.querySelector('.user-info__name');
 const infoJob = document.querySelector('.user-info__job');
 
+const loading = document.querySelector('.root__loading');
+
 const myId = '0e6ebf1765e7b3bfcf6853fe';
 
 const validMessage = {
@@ -61,7 +63,7 @@ const popupTypeAva = new Popup(popupAva);
 
 const api = new Api(options);
 
-const newUserCard = () => new Card(api, popupTypeImg);
+const newUserCard = () => new Card(api);
 
 const cardList = new CardList(placesList, api, newUserCard, myId);
 
@@ -136,12 +138,16 @@ submitAdd.addEventListener('click', (event) => {
   const link = document.querySelector('.popup__input_type_link-url');
   const newCard = { name: name.value, link: link.value };
 
+  submitAdd.textContent = 'Загрузка...';
+
   api.sendNewCard(newCard)
     .then((res) => {
       cardList.addCard(res, true);
+      submitAdd.textContent = '+';
     })
     // eslint-disable-next-line no-console
     .catch((err) => console.log(err));
+
 
   formAdd.reset();
   popupTypeAdd.close();
@@ -152,7 +158,7 @@ submitAdd.addEventListener('click', (event) => {
 submitEdit.addEventListener('click', (event) => {
   event.preventDefault();
 
-  userInfo.updateUserInfo(popupTypeEdit);
+  userInfo.updateUserInfo(popupTypeEdit, submitEdit);
 });
 
 // Обработчик загрузки аватара //
@@ -167,7 +173,7 @@ submitAva.addEventListener('click', (event) => {
 
 // Подгрузка карточек из массива //
 
-cardList.render();
+cardList.render(loading);
 
 // Подгрузка UserInfo //
 

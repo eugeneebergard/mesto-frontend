@@ -2,11 +2,9 @@
 /* eslint-disable no-restricted-globals */
 
 export default class Card {
-  constructor(api, popup) {
+  constructor(api) {
     this.api = api;
-    this.popup = popup;
   }
-
 
   like(event) {
     const like = event.target;
@@ -39,14 +37,16 @@ export default class Card {
     clickCard.remove();
   }
 
+  // eslint-disable-next-line class-methods-use-this
   zoom(event) {
+    const popupImg = document.querySelector('.popup_type_full-img');
     const fullImage = document.querySelector('.popup__bg-img');
     const imageSrc = event.target.style.backgroundImage.slice();
 
     fullImage.setAttribute('style', 'background-image');
     fullImage.style.backgroundImage = imageSrc;
 
-    this.popup.open();
+    popupImg.classList.add('popup_is-opened');
   }
 
   create(obj) {
@@ -85,7 +85,7 @@ export default class Card {
     this
       .cardContainer
       .querySelector('.place-card__image')
-      .addEventListener('click', () => this.zoom(event));
+      .addEventListener('click', this.zoom);
   }
 
   removeEventListeners() {
@@ -100,6 +100,6 @@ export default class Card {
     this
       .cardContainer
       .querySelector('.place-card__image')
-      .removeEventListener('click', () => this.zoom(event));
+      .removeEventListener('click', this.zoom);
   }
 }

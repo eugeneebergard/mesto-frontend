@@ -1,0 +1,11 @@
+.root__loading {
+    width: 160px;
+    display: block;
+    font-size: 32px;
+    color: white;
+    margin: 100px auto 0;
+}
+
+.root__loading_done {
+    display: none;
+}
