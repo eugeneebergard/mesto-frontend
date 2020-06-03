@@ -110,7 +110,7 @@ submitAdd.addEventListener('click', (event) => {
   const link = document.querySelector('.popup__input_type_link-url');
   const newCard = { name: name.value, link: link.value };
 
-  api.addNewCard(newCard)
+  api.sendNewCard(newCard)
     .then((res) => {
       cardList.addCard(res);
     })

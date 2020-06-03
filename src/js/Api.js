@@ -42,7 +42,7 @@ export default class Api {
       });
   }
 
-  addNewCard(card) {
+  sendNewCard(card) {
     const { name } = card;
     const { link } = card;
     return fetch(`${this.options.baseUrl}/cards`, {

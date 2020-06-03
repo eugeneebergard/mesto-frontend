@@ -33,7 +33,10 @@ export default class Card {
         </div>
         <div class="place-card__description">
           <h3 class="place-card__name">${obj.name}</h3>
-          <button class="place-card__like-icon"></button>
+          <div class="place-card__container">
+            <button class="place-card__like-icon"></button>
+            <span class="place-card__like-counter">${obj.likes.length}</span>
+          </div>
         </div>`,
     );
 
