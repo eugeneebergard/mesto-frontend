@@ -8,6 +8,8 @@ import FormValidator from './js/FormValidator';
 import Popup from './js/Popup';
 import UserInfo from './js/UserInfo';
 
+const popup = document.querySelector('.popup_type_full-img');
+
 const popupEdit = document.querySelector('.popup_type_edit-profile');
 const popupAdd = document.querySelector('.popup_type_add-card');
 const popupImg = document.querySelector('.popup_type_full-img');
@@ -19,7 +21,6 @@ const buttonOpenAva = document.querySelector('.user-info__photo');
 
 const buttonCloseAdd = document.querySelector('.popup__close_type_add-card');
 const buttonCloseEdit = document.querySelector('.popup__close_type_edit-profile');
-const buttonCloseImg = document.querySelector('.popup__close_type_full-img');
 const buttonCloseAva = document.querySelector('.popup__close_type_update-avatar');
 
 const submitAdd = document.querySelector('.popup__button_save_card');
@@ -122,7 +123,7 @@ buttonCloseAva.addEventListener('click', () => {
 
 // Обработчик закрытия формы img //
 
-buttonCloseImg.addEventListener('click', () => {
+popup.addEventListener('click', () => {
   popupTypeImg.close();
 });
 

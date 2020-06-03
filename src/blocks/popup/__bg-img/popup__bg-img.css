@@ -1,10 +1,38 @@
 .popup__bg-img {
-    width: 451px;
-    height: 561px;
-    max-width: 80vw;
-    max-height: 80vh;
+    width: 95vw;
+    height: 92vh;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     position: relative;
+}
+
+@media (max-width: 1200px) {
+    .popup__bg-img {
+        width: 92vw;
+    }
+}
+
+@media (max-width: 900px) {
+    .popup__bg-img {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 700px) {
+    .popup__bg-img {
+        width: 88vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .popup__bg-img {
+        width: 85vw;
+    }
+}
+
+@media (max-width: 420px) {
+    .popup__bg-img {
+        width: 83vw;
+    }
 }
