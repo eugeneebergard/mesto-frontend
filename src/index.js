@@ -112,7 +112,7 @@ submitAdd.addEventListener('click', (event) => {
 
   api.sendNewCard(newCard)
     .then((res) => {
-      cardList.addCard(res);
+      cardList.addCard(res, true);
     })
     // eslint-disable-next-line no-console
     .catch((err) => console.log(err));

@@ -7,8 +7,12 @@ export default class CardList {
     this.api = api;
   }
 
-  addCard(obj) {
-    this.container.appendChild(this.func().create(obj));
+  addCard(obj, myCard) {
+    if (myCard) {
+      this.container.insertBefore(this.func().create(obj), this.container.firstChild);
+    } else {
+      this.container.appendChild(this.func().create(obj));
+    }
   }
 
   render() {
@@ -17,7 +21,7 @@ export default class CardList {
         cards.reverse();
         // eslint-disable-next-line no-restricted-syntax
         for (const card of cards) {
-          this.addCard(card);
+          this.addCard(card, false);
         }
       })
       .catch((err) => console.log(err));
