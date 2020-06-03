@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-restricted-globals */
 
 export default class Card {
@@ -6,20 +7,38 @@ export default class Card {
     this.popup = popup;
   }
 
-  // eslint-disable-next-line class-methods-use-this
+
   like(event) {
-    event.target.classList.toggle('place-card__like-icon_liked');
+    const like = event.target;
+    if (like.classList.contains('place-card__like-icon_liked')) {
+      this.api.deleteLike(this.card._id);
+      this.likeCounting(like, true);
+      like.classList.remove('place-card__like-icon_liked');
+    } else {
+      this.api.toPutLike(this.card._id);
+      this.likeCounting(like, false);
+      like.classList.add('place-card__like-icon_liked');
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  likeCounting(heart, value) {
+    const counter = heart.nextElementSibling;
+    const counterValue = +counter.textContent;
+    if (value) {
+      counter.textContent = counterValue - 1;
+    } else {
+      counter.textContent = counterValue + 1;
+    }
   }
 
   remove(event) {
     const clickCard = event.target.closest('.place-card');
-    // eslint-disable-next-line no-underscore-dangle
     this.api.deleteCard(this.card._id);
     this.removeEventListeners();
     clickCard.remove();
   }
 
-  // eslint-disable-next-line class-methods-use-this
   zoom(event) {
     const fullImage = document.querySelector('.popup__bg-img');
     const imageSrc = event.target.style.backgroundImage.slice();
@@ -58,7 +77,7 @@ export default class Card {
     this
       .cardContainer
       .querySelector('.place-card__like-icon')
-      .addEventListener('click', this.like);
+      .addEventListener('click', () => this.like(event));
     this
       .cardContainer
       .querySelector('.place-card__delete-icon')
@@ -73,7 +92,7 @@ export default class Card {
     this
       .cardContainer
       .querySelector('.place-card__like-icon')
-      .removeEventListener('click', this.like);
+      .removeEventListener('click', () => this.like(event));
     this
       .cardContainer
       .querySelector('.place-card__delete-icon')

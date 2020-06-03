@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-console */
 
 export default class CardList {
@@ -8,11 +9,12 @@ export default class CardList {
     this.myId = myId;
   }
 
-  addCard(obj, newCard) {
-    // eslint-disable-next-line no-underscore-dangle
-    const cardId = obj.owner._id;
-    const placeCard = this.func().create(obj);
+  addCard(card, newCard) {
+    const cardId = card.owner._id;
+    const placeCard = this.func().create(card);
     const buttonDelete = placeCard.querySelector('.place-card__delete-icon');
+    const buttonLike = placeCard.querySelector('.place-card__like-icon');
+    const likeWasClick = card.likes.find((item) => item._id === this.myId);
 
     if (newCard) {
       this.container.insertBefore(placeCard, this.container.firstChild);
@@ -23,6 +25,8 @@ export default class CardList {
     if (cardId === this.myId) {
       buttonDelete.classList.add('place-card__delete-icon_show');
     }
+
+    if (likeWasClick) buttonLike.classList.add('place-card__like-icon_liked');
   }
 
   render() {
