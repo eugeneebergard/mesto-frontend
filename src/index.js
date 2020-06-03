@@ -48,15 +48,15 @@ const options = {
   },
 };
 
-const api = new Api(options);
-
-const newUserCard = () => new Card();
-
-const cardList = new CardList(placesList, api, newUserCard, myId);
-
 const popupTypeAdd = new Popup(popupAdd);
 const popupTypeEdit = new Popup(popupEdit);
 const popupTypeImg = new Popup(popupImg);
+
+const api = new Api(options);
+
+const newUserCard = () => new Card(api, popupTypeImg);
+
+const cardList = new CardList(placesList, api, newUserCard, myId);
 
 const userInfo = new UserInfo(fullname, job, infoName, infoJob, api);
 
@@ -128,8 +128,7 @@ submitAdd.addEventListener('click', (event) => {
 submitEdit.addEventListener('click', (event) => {
   event.preventDefault();
 
-  userInfo.updateUserInfo();
-  popupTypeEdit.close();
+  userInfo.updateUserInfo(popupTypeEdit);
 });
 
 // Подгрузка карточек из массива //

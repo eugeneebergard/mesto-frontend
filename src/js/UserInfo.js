@@ -23,11 +23,13 @@ export default class UserInfo {
     this.job.value = this.infoJob.textContent;
   }
 
-  updateUserInfo() {
+  updateUserInfo(popup) {
     this.api.sendUserUpdate(this.name.value, this.job.value)
       .then(() => {
         this.infoName.textContent = this.name.value;
         this.infoJob.textContent = this.job.value;
+
+        popup.close();
       })
       .catch((err) => console.log(err));
   }

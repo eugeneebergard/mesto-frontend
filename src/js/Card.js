@@ -1,41 +1,50 @@
+/* eslint-disable no-restricted-globals */
 
 export default class Card {
+  constructor(api, popup) {
+    this.api = api;
+    this.popup = popup;
+  }
+
   // eslint-disable-next-line class-methods-use-this
   like(event) {
     event.target.classList.toggle('place-card__like-icon_liked');
   }
 
   remove(event) {
+    const clickCard = event.target.closest('.place-card');
+    // eslint-disable-next-line no-underscore-dangle
+    this.api.deleteCard(this.card._id);
     this.removeEventListeners();
-    event.target.closest('.place-card').remove();
+    clickCard.remove();
   }
 
   // eslint-disable-next-line class-methods-use-this
   zoom(event) {
-    const popupImg = document.querySelector('.popup_type_full-img');
     const fullImage = document.querySelector('.popup__bg-img');
     const imageSrc = event.target.style.backgroundImage.slice();
 
     fullImage.setAttribute('style', 'background-image');
     fullImage.style.backgroundImage = imageSrc;
 
-    popupImg.classList.add('popup_is-opened');
+    this.popup.open();
   }
 
   create(obj) {
+    this.card = obj;
     this.cardContainer = document.createElement('div');
     this.cardContainer.classList.add('place-card');
     this.cardContainer.insertAdjacentHTML(
       'beforeend',
 
-      ` <div class="place-card__image" style="background-image: url(${obj.link})">
+      ` <div class="place-card__image" style="background-image: url(${this.card.link})">
           <button class="place-card__delete-icon"></button>
         </div>
         <div class="place-card__description">
-          <h3 class="place-card__name">${obj.name}</h3>
+          <h3 class="place-card__name">${this.card.name}</h3>
           <div class="place-card__container">
             <button class="place-card__like-icon"></button>
-            <span class="place-card__like-counter">${obj.likes.length}</span>
+            <span class="place-card__like-counter">${this.card.likes.length}</span>
           </div>
         </div>`,
     );
@@ -53,12 +62,11 @@ export default class Card {
     this
       .cardContainer
       .querySelector('.place-card__delete-icon')
-      // eslint-disable-next-line no-restricted-globals
       .addEventListener('click', () => this.remove(event));
     this
       .cardContainer
       .querySelector('.place-card__image')
-      .addEventListener('click', this.zoom);
+      .addEventListener('click', () => this.zoom(event));
   }
 
   removeEventListeners() {
@@ -69,11 +77,10 @@ export default class Card {
     this
       .cardContainer
       .querySelector('.place-card__delete-icon')
-      // eslint-disable-next-line no-restricted-globals
       .removeEventListener('click', () => this.remove(event));
     this
       .cardContainer
       .querySelector('.place-card__image')
-      .removeEventListener('click', this.zoom);
+      .removeEventListener('click', () => this.zoom(event));
   }
 }
