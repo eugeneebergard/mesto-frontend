@@ -9,4 +9,9 @@
   right: 15px;
   cursor: pointer;
   outline: none;
+  display: none;
+}
+
+.place-card__delete-icon_show {
+  display: block;
 }

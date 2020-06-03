@@ -32,6 +32,8 @@ const job = document.querySelector('.popup__input_type_job');
 const infoName = document.querySelector('.user-info__name');
 const infoJob = document.querySelector('.user-info__job');
 
+const myId = '0e6ebf1765e7b3bfcf6853fe';
+
 const validMessage = {
   validationLenght: 'Должно быть от 2 до 30 символов',
   validationVoid: 'Это обязательное поле',
@@ -50,7 +52,7 @@ const api = new Api(options);
 
 const newUserCard = () => new Card();
 
-const cardList = new CardList(placesList, api, newUserCard);
+const cardList = new CardList(placesList, api, newUserCard, myId);
 
 const popupTypeAdd = new Popup(popupAdd);
 const popupTypeEdit = new Popup(popupEdit);
