@@ -1,5 +1,5 @@
 {
-  "name": "mesto-webpack",
+  "name": "mesto-frontend",
   "version": "1.0.0",
   "description": "Project 11",
   "main": "index.js",
@@ -15,9 +15,9 @@
   "author": "ebergard",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eugeneebergard/mesto-webpack/issues"
+    "url": "https://github.com/eugeneebergard/mesto-frontend/issues"
   },
-  "homepage": "https://eugeneebergard.github.io/mesto-webpack/",
+  "homepage": "https://eugeneebergard.github.io/mesto-frontend/",
   "devDependencies": {
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.1",
