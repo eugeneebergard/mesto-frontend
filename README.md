@@ -1,6 +1,6 @@
 # Mesto 
 
-### Version 1.2.0
+### Version 1.0.0
 
 ## Процесс установки:
 
@@ -14,13 +14,14 @@ $ npm run dev
 ```
 Подробная документация: [Webpack](https://webpack.js.org/guides/getting-started/)
 
+## Домен: [ebergardmesto.tk](https://ebergardmesto.tk)
+## Публичный IP адресс: [130.193.39.204](https://130.193.39.204)
+
 ## О проекте: 
 
 **Сервис для добавления фотографий различных мест**
 
-**Просмотр проекта доступен на** [GitHub Pages](https://eugeneebergard.github.io/mesto-webpack/)
-
-**Стек:** HTML5, CSS3(Flexbox + Grid), БЭМ, JavaScript ES6, ООП, Webpack
+**Стек:** HTML5, CSS3(Flexbox + Grid), БЭМ, JavaScript ES6, ООП, Webpack, ESLint
 
 **Функционал:**
 
