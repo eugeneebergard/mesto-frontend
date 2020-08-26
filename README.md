@@ -15,7 +15,7 @@ $ npm run dev
 Подробная документация: [Webpack](https://webpack.js.org/guides/getting-started/)
 
 ## Домен: [ebergardmesto.tk](https://ebergardmesto.tk)
-## Публичный IP адресс: [130.193.39.204](https://130.193.39.204)
+## Публичный IP адресс: [178.154.225.144](https://178.154.225.144)
 
 ## О проекте: 
 
