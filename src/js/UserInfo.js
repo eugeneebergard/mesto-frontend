@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export default class UserInfo {
   constructor(name, job, infoName, infoJob, api, photo) {
     this.infoName = infoName;

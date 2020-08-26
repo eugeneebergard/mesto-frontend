@@ -48,8 +48,7 @@ const validMessage = {
 };
 
 const options = {
-  // eslint-disable-next-line no-undef
-  baseUrl: NODE_ENV === 'development' ? 'http://praktikum.tk/cohort10' : 'https://praktikum.tk/cohort10',
+  baseUrl: NODE_ENV === 'development' ? 'http://nomoreparties.co/cohort10' : 'https://nomoreparties.co/cohort10',
   headers: {
     authorization: '786dbc8b-04cf-4abd-8a09-fbdf77c3284b',
     'Content-Type': 'application/json',

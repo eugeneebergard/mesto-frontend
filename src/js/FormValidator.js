@@ -1,4 +1,3 @@
-
 export default class FormValidator {
   constructor(form, submit, validMessage) {
     this.validMessage = validMessage;
