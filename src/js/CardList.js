@@ -1,6 +1,3 @@
-/* eslint-disable no-underscore-dangle */
-/* eslint-disable no-console */
-
 export default class CardList {
   constructor(container, api, func, myId) {
     this.container = container;
@@ -11,7 +8,8 @@ export default class CardList {
 
   addCard(card, newCard) {
     const cardId = card.owner._id;
-    const placeCard = this.func().create(card);
+    const placeCard = this.func()
+      .create(card);
     const buttonDelete = placeCard.querySelector('.place-card__delete-icon');
     const buttonLike = placeCard.querySelector('.place-card__like-icon');
     const likeWasClick = card.likes.find((item) => item._id === this.myId);
